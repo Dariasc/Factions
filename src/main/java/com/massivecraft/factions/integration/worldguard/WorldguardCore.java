@@ -1,4 +1,4 @@
-package com.massivecraft.factions.integration;
+package com.massivecraft.factions.integration.worldguard;
 
 import com.massivecraft.factions.FLocation;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
@@ -18,7 +18,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-public class Worldguard7 implements IWorldguard {
+public class WorldguardCore implements Worldguard {
 
     // PVP Flag check
     // Returns:

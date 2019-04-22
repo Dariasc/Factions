@@ -7,6 +7,9 @@ import com.massivecraft.factions.cmd.CmdAutoHelp;
 import com.massivecraft.factions.cmd.FCmdRoot;
 import com.massivecraft.factions.integration.*;
 import com.massivecraft.factions.integration.dynmap.EngineDynmap;
+import com.massivecraft.factions.integration.worldguard.Worldguard;
+import com.massivecraft.factions.integration.worldguard.WorldguardLegacy;
+import com.massivecraft.factions.integration.worldguard.WorldguardCore;
 import com.massivecraft.factions.listeners.*;
 import com.massivecraft.factions.struct.ChatMode;
 import com.massivecraft.factions.util.*;
@@ -68,7 +71,7 @@ public class P extends MPlugin {
 
     public SeeChunkUtil seeChunkUtil;
     public ParticleProvider particleProvider;
-    public IWorldguard worldguard;
+    public Worldguard worldguard;
 
     public P() {
         p = this;
@@ -180,10 +183,10 @@ public class P extends MPlugin {
         if (plugin != null) {
             String version = plugin.getDescription().getVersion();
             if (version.startsWith("6")) {
-                this.worldguard = new Worldguard6();
+                this.worldguard = new WorldguardLegacy();
                 log(Level.INFO, "Found support for WorldGuard version " + version);
             } else if (version.startsWith("7")) {
-                this.worldguard = new Worldguard7();
+                this.worldguard = new WorldguardCore();
                 log(Level.INFO, "Found support for WorldGuard version " + version);
             } else {
                 P.p.log(Level.WARNING, "Loaded WorldGuard but couldn't support this version: " + version);
@@ -193,7 +196,7 @@ public class P extends MPlugin {
         }
     }
 
-    public IWorldguard getWorldguard() {
+    public Worldguard getWorldguard() {
         return this.worldguard;
     }
 

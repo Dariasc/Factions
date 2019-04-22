@@ -1,10 +1,10 @@
-package com.massivecraft.factions.integration;
+package com.massivecraft.factions.integration.worldguard;
 
 import com.massivecraft.factions.FLocation;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-public interface IWorldguard {
+public interface Worldguard {
 
     public boolean isPVP(Player player);
 
